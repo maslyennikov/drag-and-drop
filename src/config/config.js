@@ -4,3 +4,12 @@ export const translations = {
 };
 
 export const layoutsNumber = 6;
+
+export const configurationLayouts = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+];
