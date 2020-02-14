@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ViewGrid from '../../components/common/ViewGrid';
+import View from '../../components/common/View';
 import HeaderContainer from '../../components/common/Header';
 import LayoutViewContentContainer from '../../components/specific/LayoutViewContent';
 
 const LayoutView = () => (
-    <ViewGrid
+    <View
         header={<HeaderContainer />}
         content={<LayoutViewContentContainer />}
     />

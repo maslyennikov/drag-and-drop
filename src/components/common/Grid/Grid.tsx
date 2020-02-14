@@ -1,14 +1,14 @@
 import React from 'react';
 import RGL, { ReactGridLayoutProps, WidthProvider } from 'react-grid-layout';
 
-interface IStaticGrid {
+interface IGrid {
     rglProps: ReactGridLayoutProps;
-    children?: any;
+    children?: React.ReactElement;
 }
 
 const ReactGridLayout = WidthProvider(RGL);
 
-const StaticGrid = (props: IStaticGrid) => (
+const Grid = (props: IGrid) => (
     <ReactGridLayout
         {...props.rglProps}
     >
@@ -16,4 +16,4 @@ const StaticGrid = (props: IStaticGrid) => (
     </ReactGridLayout>
 );
 
-export default StaticGrid;
+export default Grid;

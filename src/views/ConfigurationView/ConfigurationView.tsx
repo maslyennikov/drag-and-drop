@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ViewGrid from "../../components/common/ViewGrid";
+import View from "../../components/common/View";
 import HeaderContainer from "../../components/common/Header";
 import ConfigurationViewContent from '../../components/specific/ConfigurationViewContent';
 
 const ConfigurationView = () => (
-    <ViewGrid
+    <View
         header={<HeaderContainer />}
         content={<ConfigurationViewContent />}
     />

@@ -1,29 +1,26 @@
 import React from 'react';
-import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout';
+import { GridType, texts } from "../../../constants/constants";
 
-import BoxContainer from '../../common/Box';
-import { texts } from "../../../constants/constants";
-
-const ReactGridLayout = WidthProvider(RGL);
+import Title from '../../common/Title';
+import Grid from '../../common/Grid';
+import { ContentWrapper } from './style';
 
 interface ILayoutViewContent {
-    rglProps: ReactGridLayoutProps;
-    domContent: any;
+    domContent: React.ReactElement[];
 }
 
-const LayoutViewContent = (props: ILayoutViewContent) => {
-    const content = (
-        <ReactGridLayout {...props.rglProps}>
-            {props.domContent}
-        </ReactGridLayout>
-    );
-
-    return (
-        <BoxContainer
+const LayoutViewContent = (props: ILayoutViewContent) => (
+    <>
+        <Title
             title={texts.layoutPageTitle}
-            content={content}
         />
-    );
-};
+
+        <ContentWrapper>
+            <Grid gridType={GridType.layoutViewContent}>
+                {props.domContent}
+            </Grid>
+        </ContentWrapper>
+    </>
+);
 
 export default LayoutViewContent;

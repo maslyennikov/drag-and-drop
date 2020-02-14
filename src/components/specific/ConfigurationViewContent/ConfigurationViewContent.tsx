@@ -1,13 +1,10 @@
 import React from 'react';
 
-import BoxContainer from '../../common/Box';
 import { texts } from '../../../constants/constants';
+import Title from '../../common/Title';
 
 const ConfigurationViewContent = () => (
-    <BoxContainer
-        title={texts.configurationPageTitle}
-        content={'Content'}
-    />
+    <Title title={texts.configurationPageTitle} />
 );
 
 export default ConfigurationViewContent;
