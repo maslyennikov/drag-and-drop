@@ -1,25 +1,22 @@
 import React from 'react';
-import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout';
 
-const ReactGridLayout = WidthProvider(RGL);
+import StaticGrid from '../StaticGrid';
+import { GridType } from '../../../constants/constants';
 
 interface IViewGrid {
-    rglProps: ReactGridLayoutProps;
     header: any;
     content: any;
 }
 
 const ViewGrid = (props: IViewGrid) => (
-    <ReactGridLayout
-        {...props.rglProps}
-    >
+    <StaticGrid gridType={GridType.view}>
         <div key={'header'}>
             {props.header}
         </div>
         <div key={'content'}>
             {props.content}
         </div>
-    </ReactGridLayout>
+    </StaticGrid>
 );
 
 export default ViewGrid;

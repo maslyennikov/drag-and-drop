@@ -3,6 +3,7 @@ import { map, range } from "lodash";
 import { ReactGridLayoutProps } from 'react-grid-layout';
 
 import LayoutViewContent from './LayoutViewContent';
+import BoxContainer from '../../common/Box';
 import { layoutsNumber } from "../../../constants/constants";
 
 const generateLayout = () => map(new Array(layoutsNumber), (item, i) => ({
@@ -16,7 +17,7 @@ const generateLayout = () => map(new Array(layoutsNumber), (item, i) => ({
 
 const generateDOM = () => map(range(layoutsNumber), (i) => (
     <div key={i} style={{ border: '1px solid #3f51b5', margin: '10px' }}>
-        <span>{i}</span>
+        <BoxContainer content={i} />
     </div>
 ));
 
