@@ -1,9 +1,15 @@
 import React from 'react';
-import RGL, { WidthProvider } from 'react-grid-layout';
+import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout';
 
 const ReactGridLayout = WidthProvider(RGL);
 
-const ViewGrid = (props) => (
+interface IViewGrid {
+    rglProps: ReactGridLayoutProps;
+    header: any;
+    content: any;
+}
+
+const ViewGrid = (props: IViewGrid) => (
     <ReactGridLayout
         {...props.rglProps}
     >

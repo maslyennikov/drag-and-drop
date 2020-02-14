@@ -1,12 +1,18 @@
 import React from 'react';
-import RGL, { WidthProvider } from 'react-grid-layout';
+import RGL, { ReactGridLayoutProps, WidthProvider } from 'react-grid-layout';
 import { Divider } from '@material-ui/core';
 
 import { BoxTitle } from './style';
 
 const ReactGridLayout = WidthProvider(RGL);
 
-const Box = (props) => (
+interface IBoxContainer {
+    title?: string;
+    rglProps: ReactGridLayoutProps;
+    content: any;
+}
+
+const Box = (props: IBoxContainer) => (
     <ReactGridLayout
         {...props.rglProps}
     >
