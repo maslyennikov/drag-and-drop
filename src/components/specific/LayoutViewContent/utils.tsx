@@ -12,7 +12,7 @@ export const generateDOM = () => map(range(configurationScreenLayouts.length), (
     });
 
     const configurationScreenGrid = (
-        <GridContainer gridType={GridType.configurationScreen}>
+        <GridContainer gridType={GridType.configurationScreen} customLayout={configurationScreenLayouts[i]}>
             {configurationScreenDOM}
         </GridContainer>
     );

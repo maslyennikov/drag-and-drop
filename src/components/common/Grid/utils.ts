@@ -1,8 +1,8 @@
 import { map } from 'lodash';
-import { ReactGridLayoutProps } from 'react-grid-layout';
+import { Layout, ReactGridLayoutProps } from 'react-grid-layout';
 
 import { configurationScreenLayouts, GridType } from '../../../constants/constants';
-import { ILayout } from '../../../interfaces';
+
 
 export const generateLayoutViewContent = () => {
     const length = configurationScreenLayouts.length;
@@ -19,7 +19,7 @@ export const generateLayoutViewContent = () => {
 
 export const gridTypes: ReactGridLayoutProps[] = [];
 
-const layoutViewContentLayout: ILayout[] = generateLayoutViewContent();
+const layoutViewContentLayout: Layout[] = generateLayoutViewContent();
 
 gridTypes[GridType.layoutViewContent] = {
     className: 'layoutViewContent',
