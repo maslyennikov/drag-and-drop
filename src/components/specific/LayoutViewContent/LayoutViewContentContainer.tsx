@@ -1,8 +1,9 @@
 import React from 'react';
 import { map, range } from "lodash";
+import { ReactGridLayoutProps } from 'react-grid-layout';
 
 import LayoutViewContent from './LayoutViewContent';
-import { layoutsNumber } from "../../../config/config";
+import { layoutsNumber } from "../../../constants/constants";
 
 const generateLayout = () => map(new Array(layoutsNumber), (item, i) => ({
         x: i * 4 % 12,
@@ -21,14 +22,13 @@ const generateDOM = () => map(range(layoutsNumber), (i) => (
 
 const LayoutViewContentContainer = () => {
     const layout = generateLayout();
-    const RGLProps = {
+    const RGLProps: ReactGridLayoutProps = {
         className: 'layout',
         isDraggable: false,
         isResizable: false,
         cols: 12,
         rowHeight: 64,
         margin: [10, 10],
-        items: layoutsNumber,
         layout
     };
     const domContent = generateDOM();

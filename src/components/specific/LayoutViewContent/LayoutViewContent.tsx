@@ -1,12 +1,17 @@
 import React from 'react';
-import RGL, { WidthProvider } from 'react-grid-layout';
+import RGL, { WidthProvider, ReactGridLayoutProps } from 'react-grid-layout';
 
 import BoxContainer from '../../common/Box';
-import { translations } from "../../../config/config";
+import { texts } from "../../../constants/constants";
 
 const ReactGridLayout = WidthProvider(RGL);
 
-const LayoutViewContent = (props) => {
+interface ILayoutViewContent {
+    rglProps: ReactGridLayoutProps;
+    domContent: any;
+}
+
+const LayoutViewContent = (props: ILayoutViewContent) => {
     const content = (
         <ReactGridLayout {...props.rglProps}>
             {props.domContent}
@@ -15,7 +20,7 @@ const LayoutViewContent = (props) => {
 
     return (
         <BoxContainer
-            title={translations.layoutPageTitle}
+            title={texts.layoutPageTitle}
             content={content}
         />
     );

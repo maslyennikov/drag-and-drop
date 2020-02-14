@@ -1,4 +1,4 @@
-export const translations = {
+export const texts = {
     layoutPageTitle: 'Layouts Page',
     configurationPageTitle: 'Configuration Page'
 };
