@@ -26,7 +26,7 @@ gridTypes[GridType.layoutViewContent] = {
     isDraggable: false,
     isResizable: false,
     cols: 12,
-    rowHeight: 64,
+    rowHeight: 45,
     margin: [10, 10],
     layout: layoutViewContentLayout
 };
@@ -34,7 +34,7 @@ gridTypes[GridType.configurationScreen] = {
     className: 'configurationScreen',
     isDraggable: false,
     isResizable: false,
-    cols: 12,
-    rowHeight: 64,
+    cols: 12.5,
+    rowHeight: 45,
     layout: configurationScreenLayouts[0]
 };

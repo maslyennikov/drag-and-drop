@@ -4,6 +4,7 @@ import { map, range } from 'lodash';
 import { configurationScreenLayouts, GridType } from '../../../constants/constants';
 import { ConfigurationScreenWrapper } from './style';
 import GridContainer from '../../common/Grid';
+import { Link } from 'react-router-dom';
 
 //TODO: Add functin description
 export const generateDOM = () => map(range(configurationScreenLayouts.length), (i: number) => {
@@ -18,8 +19,11 @@ export const generateDOM = () => map(range(configurationScreenLayouts.length), (
     );
 
     return (
+
         <div key={i} style={{ border: '1px solid #3f51b5' }}>
-            {configurationScreenGrid}
+            <Link to={'/configuration'}>
+                {configurationScreenGrid}
+            </Link>
         </div>
     );
 });
