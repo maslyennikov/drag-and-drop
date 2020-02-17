@@ -9,8 +9,8 @@ export const generateLayoutViewContent = () => {
 
     return map(new Array(length), (item, i) => ({
             x: i * 4 % 12,
-            y: 4,
-            w: 3.8,
+            y: 0,
+            w: 4,
             h: 5,
             i: i.toString()
         }
@@ -25,16 +25,13 @@ gridTypes[GridType.layoutViewContent] = {
     className: 'layoutViewContent',
     isDraggable: false,
     isResizable: false,
-    cols: 12,
     rowHeight: 45,
-    margin: [10, 10],
     layout: layoutViewContentLayout
 };
 gridTypes[GridType.configurationScreen] = {
     className: 'configurationScreen',
     isDraggable: false,
     isResizable: false,
-    cols: 12.5,
     rowHeight: 45,
     layout: configurationScreenLayouts[0]
 };

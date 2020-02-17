@@ -11,6 +11,8 @@ interface IGridContainer {
     gridType: GridType;
     customLayout?: Layout[]
     children?: any;
+
+    onClick?: () => void;
 }
 
 const GridContainer = (props: IGridContainer) => {

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Title from './Title';
 
 interface IViewTitleContainer {
@@ -7,7 +6,7 @@ interface IViewTitleContainer {
 }
 
 const TitleContainer = (props: IViewTitleContainer) => (
-    <Title title={props.title}/>
+    <Title title={props.title} />
 );
 
 export default TitleContainer;
