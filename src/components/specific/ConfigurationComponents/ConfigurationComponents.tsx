@@ -1,7 +1,7 @@
 import React from 'react';
 
 import GridContainer from '../../common/Grid';
-import { GridType } from '../../../constants/constants';
+import { GridType } from '../../../config';
 import { ComponentsWrapper, Title } from './style';
 
 interface IConfigurationComponents {

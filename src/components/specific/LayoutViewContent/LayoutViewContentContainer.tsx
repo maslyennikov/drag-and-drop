@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import LayoutViewContent from './LayoutViewContent';
-import { GridType } from '../../../constants/constants';
+import { GridType } from '../../../config';
 
 import { ConfigurationScreenWrapper } from './style';
 import GridContainer from '../../common/Grid';

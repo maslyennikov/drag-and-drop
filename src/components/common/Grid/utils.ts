@@ -1,6 +1,6 @@
 import { Layout, ReactGridLayoutProps } from 'react-grid-layout';
 
-import { GridType } from '../../../constants/constants';
+import { GridType } from '../../../config';
 import { generateConfigurationComponentsLayout, generateLayoutViewContentLayout } from './layouts';
 
 export const gridTypes: ReactGridLayoutProps[] = [];

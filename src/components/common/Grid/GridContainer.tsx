@@ -2,7 +2,7 @@ import React from 'react';
 import { isUndefined } from 'lodash';
 
 import Grid from './Grid';
-import { GridType } from '../../../constants/constants';
+import { GridType } from '../../../config';
 import { gridTypes } from './utils';
 import { Layout } from 'react-grid-layout';
 

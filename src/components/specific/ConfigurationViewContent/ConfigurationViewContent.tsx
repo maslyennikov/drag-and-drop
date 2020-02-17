@@ -2,7 +2,8 @@ import React from 'react';
 import { isEmpty } from 'lodash';
 import { Layout } from 'react-grid-layout';
 
-import { GridType, texts } from '../../../constants/constants';
+import { texts } from '../../../constants/constants';
+import { GridType } from '../../../config';
 import Title from '../../common/Title';
 import GridContainer from '../../common/Grid';
 import { ComponentsArea, ConfigurationArea, Content } from './style'
@@ -38,6 +39,7 @@ const ConfigurationViewContent = (props: IConfigurationViewContent) => {
                 <ComponentsArea>
                     <ConfigurationComponentsContainer />
                 </ComponentsArea>
+                
                 <ConfigurationArea>
                     {isEmpty(props.activeConfigurationLayout) ? selectLayout : configurationGrid}
                 </ConfigurationArea>
