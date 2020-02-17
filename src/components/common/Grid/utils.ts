@@ -1,25 +1,12 @@
-import { map } from 'lodash';
 import { Layout, ReactGridLayoutProps } from 'react-grid-layout';
 
-import { configurationScreenLayouts, GridType } from '../../../constants/constants';
-
-
-export const generateLayoutViewContent = () => {
-    const length = configurationScreenLayouts.length;
-
-    return map(new Array(length), (item, i) => ({
-            x: i * 4 % 12,
-            y: 0,
-            w: 4,
-            h: 5,
-            i: i.toString()
-        }
-    ));
-};
+import { GridType } from '../../../constants/constants';
+import { generateConfigurationComponentsLayout, generateLayoutViewContentLayout } from './layouts';
 
 export const gridTypes: ReactGridLayoutProps[] = [];
 
-const layoutViewContentLayout: Layout[] = generateLayoutViewContent();
+const layoutViewContentLayout: Layout[] = generateLayoutViewContentLayout();
+const configurationComponentsLayout: Layout[] = generateConfigurationComponentsLayout();
 
 gridTypes[GridType.layoutViewContent] = {
     className: 'layoutViewContent',
@@ -28,10 +15,22 @@ gridTypes[GridType.layoutViewContent] = {
     rowHeight: 45,
     layout: layoutViewContentLayout
 };
+gridTypes[GridType.configurationScreenOption] = {
+    className: 'configurationScreenOption',
+    isDraggable: false,
+    isResizable: false,
+    rowHeight: 45,
+};
 gridTypes[GridType.configurationScreen] = {
     className: 'configurationScreen',
     isDraggable: false,
     isResizable: false,
+    rowHeight: 90,
+};
+gridTypes[GridType.configurationComponents] = {
+    className: 'configurationScreen',
+    isDraggable: false,
+    isResizable: false,
     rowHeight: 45,
-    layout: configurationScreenLayouts[0]
+    layout: configurationComponentsLayout
 };

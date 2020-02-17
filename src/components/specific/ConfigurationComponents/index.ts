@@ -1,0 +1,3 @@
+import ConfigurationComponentsContainer from './ConfigurationComponentsContainer'
+
+export default ConfigurationComponentsContainer;

@@ -16,7 +16,7 @@ const LayoutViewContent = (props: ILayoutViewContent) => (
         />
 
         <ContentWrapper>
-            <Grid gridType={GridType.layoutViewContent}>
+            <Grid type={GridType.layoutViewContent}>
                 {props.domContent}
             </Grid>
         </ContentWrapper>

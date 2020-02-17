@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import LayoutViewContent from './LayoutViewContent';
-import { configurationScreenLayouts, GridType } from '../../../constants/constants';
+import { GridType } from '../../../constants/constants';
+
 import { ConfigurationScreenWrapper } from './style';
 import GridContainer from '../../common/Grid';
+import { configurationScreenOptionLayouts } from '../../common/Grid/layouts';
 import { setActiveConfigurationLayout } from '../../../redux/modules/app';
 import { AnyAction } from 'redux';
 import { Layout } from 'react-grid-layout';
@@ -17,27 +19,27 @@ interface ILayoutViewContentContainer {
 
 class LayoutViewContentContainer extends React.PureComponent<ILayoutViewContentContainer>{
     // TODO: Add function description
-    private generateDOM = () => map(range(configurationScreenLayouts.length), (i: number) => {
-        const configurationScreenDOM = map(range(configurationScreenLayouts[i].length), (j: number) => (
+    private generateDOM = () => map(range(configurationScreenOptionLayouts.length), (i: number) => {
+        const configurationScreenOptionDOM = map(range(configurationScreenOptionLayouts[i].length), (j: number) => (
             <ConfigurationScreenWrapper key={j} />
         ));
         const onConfigurationGridClick = () => {
-            this.props.setActiveConfigurationLayout(configurationScreenLayouts[i]);
+            this.props.setActiveConfigurationLayout(configurationScreenOptionLayouts[i]);
         };
 
-        const configurationScreenGrid = (
+        const configurationScreenOptionGrid = (
             <GridContainer
-                gridType={GridType.configurationScreen}
-                customLayout={configurationScreenLayouts[i]}
+                type={GridType.configurationScreenOption}
+                customLayout={configurationScreenOptionLayouts[i]}
             >
-                {configurationScreenDOM}
+                {configurationScreenOptionDOM}
             </GridContainer>
         );
 
         return (
             <div key={i} onClick={() => {onConfigurationGridClick()}}>
                 <Link to={'/configuration'}>
-                    {configurationScreenGrid}
+                    {configurationScreenOptionGrid}
                 </Link>
             </div>
         );

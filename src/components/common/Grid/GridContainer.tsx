@@ -8,7 +8,7 @@ import { Layout } from 'react-grid-layout';
 
 
 interface IGridContainer {
-    gridType: GridType;
+    type: GridType;
     customLayout?: Layout[]
     children?: any;
 
@@ -16,8 +16,9 @@ interface IGridContainer {
 }
 
 const GridContainer = (props: IGridContainer) => {
-    const rglProps = isUndefined(props.customLayout) ? gridTypes[props.gridType]
-        : { ...gridTypes[props.gridType], layout: props.customLayout };
+    const rglProps = isUndefined(props.customLayout)
+        ? gridTypes[props.type]
+        : { ...gridTypes[props.type], layout: props.customLayout };
 
     return (
         <Grid rglProps={rglProps}>
