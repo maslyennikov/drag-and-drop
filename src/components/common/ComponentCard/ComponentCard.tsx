@@ -4,6 +4,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 interface IProps {
     content: string;
+    draggable?: boolean;
 
     onDragStart?: (event: React.DragEvent) => void;
 }
@@ -11,7 +12,7 @@ interface IProps {
 const ComponentCard = (props: IProps) => (
     <Card
         style={{ width: '100px', height: '3rem', margin: '5px', textAlign: 'center' }}
-        draggable
+        draggable={props.draggable}
         onDragStart={props.onDragStart}
     >
         <CardContent>

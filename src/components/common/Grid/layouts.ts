@@ -3,11 +3,8 @@ import { configurationComponents } from '../../../constants/constants';
 
 export const configurationScreenOptionLayouts = [
     [
-        { x: 0, y: 0, w: 6, h: 1, i: '0' },
-        { x: 6, y: 0, w: 6, h: 1, i: '1' },
-        { x: 0, y: 1, w: 12, h: 1.5, i: '2' },
-        { x: 0, y: 2, w: 6, h: 2, i: '3' },
-        { x: 6, y: 2, w: 6, h: 2, i: '4' }
+        { x: 0, y: 0, w: 6, h: 4.5, i: '0' },
+        { x: 6, y: 0, w: 6, h: 4.5, i: '1' },
     ],
     [
         { x: 0, y: 0, w: 6, h: 1, i: '0' },

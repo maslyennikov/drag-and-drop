@@ -10,7 +10,7 @@ import { Layout } from 'react-grid-layout';
 interface IProps {
     type: GridType;
     customLayout?: Layout[]
-    children?: any;
+    children: any;
 
     onClick?: () => void;
 }

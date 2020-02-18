@@ -8,7 +8,7 @@ import selectors from '../../../redux/selectors';
 import IStore from '../../../redux/store';
 import { AnyAction } from 'redux';
 import constants from '../../../constants';
-import ComponentCard from '../ComponentCard/ComponentCard';
+import ComponentCard from '../../common/ComponentCard';
 
 interface IState {
     components: string[];
@@ -50,6 +50,7 @@ class ConfigurationComponentsContainer extends React.PureComponent<IProps, IStat
             <div key={i}>
                 <ComponentCard
                     content={components[i]}
+                    draggable={true}
                     onDragStart={(event) => onDragStart(event, components[i])}
                 />
             </div>)
