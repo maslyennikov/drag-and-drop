@@ -13,11 +13,11 @@ import { setActiveConfigurationLayout } from '../../../redux/modules/app';
 import { AnyAction } from 'redux';
 import { Layout } from 'react-grid-layout';
 
-interface ILayoutViewContentContainer {
+interface IProps {
     setActiveConfigurationLayout: (layout: Layout[]) => AnyAction
 }
 
-class LayoutViewContentContainer extends React.PureComponent<ILayoutViewContentContainer> {
+class LayoutViewContentContainer extends React.PureComponent<IProps> {
     // TODO: Add function description
     private generateDOM = () => map(range(configurationScreenOptionLayouts.length), (i: number) => {
         const configurationScreenOptionDOM = map(range(configurationScreenOptionLayouts[i].length), (j: number) => (

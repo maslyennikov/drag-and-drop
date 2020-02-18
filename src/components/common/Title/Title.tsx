@@ -3,11 +3,11 @@ import React from 'react';
 import { Divider } from '@material-ui/core';
 import { Wrapper, TitleWrapper } from './style';
 
-interface IViewTitle {
+interface IProps {
     title: string;
 }
 
-const Title = (props: IViewTitle) => (
+const Title = (props: IProps) => (
     <Wrapper>
         <TitleWrapper>{props.title}</TitleWrapper>
         <Divider

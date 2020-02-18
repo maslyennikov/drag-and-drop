@@ -6,11 +6,11 @@ import Title from '../../common/Title';
 import Grid from '../../common/Grid';
 import { ContentWrapper } from './style';
 
-interface ILayoutViewContent {
+interface IProps {
     domContent: React.ReactElement[];
 }
 
-const LayoutViewContent = (props: ILayoutViewContent) => (
+const LayoutViewContent = (props: IProps) => (
     <>
         <Title
             title={texts.layoutPageTitle}

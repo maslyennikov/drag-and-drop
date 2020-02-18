@@ -27,8 +27,7 @@ const onDragStart = (event: React.DragEvent, componentName: string) => {
     event.dataTransfer.setData("componentName", componentName);
 };
 
-class ConfigurationComponentsContainer extends React.PureComponent
-    <IProps, IState> {
+class ConfigurationComponentsContainer extends React.PureComponent<IProps, IState> {
 
     constructor(props: IProps) {
         super(props);
