@@ -10,15 +10,29 @@ import IStore from '../../../redux/store';
 import selectors from '../../../redux/selectors';
 import { setConfigurationComponents } from '../../../redux/modules/app';
 
-interface IConfigurationAreaContainer {
+interface IProps {
     activeConfigurationLayout: Layout[];
     configurationComponents: string[];
 
     setConfigurationComponents: (configurationComponents: string[]) => AnyAction;
 }
 
-class ConfigurationAreaContainer extends React.PureComponent <IConfigurationAreaContainer>{
+interface IState {
+    configurationItemsState: Array<Array<string>>;
+}
+
+class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        const length = this.props.activeConfigurationLayout.length;
+
+        this.state = {
+            configurationItemsState: map(new Array(length), (item) => [])
+        };
+    }
+
     render() {
+        console.log(this.state.configurationItemsState);
         return <ConfigurationArea
             activeConfigurationLayout={this.props.activeConfigurationLayout}
             configurationGridDOM={
@@ -27,7 +41,7 @@ class ConfigurationAreaContainer extends React.PureComponent <IConfigurationArea
         />
     }
 
-    private onDrop = (event: React.DragEvent) => {
+    private onDrop = (event: any) => {
         const componentName = event.dataTransfer.getData("componentName");
 
         this.props.setConfigurationComponents(
@@ -36,22 +50,28 @@ class ConfigurationAreaContainer extends React.PureComponent <IConfigurationArea
             )
         );
 
-        console.log('dropped');
-        console.log('element is ', componentName);
+        let itemsClone = this.state.configurationItemsState.slice();
+        itemsClone[event.target.id].push(componentName);
+
+        this.setState({
+            ...this.state,
+            configurationItemsState: itemsClone
+        });
     };
 
-    private  onDragOver = (event: React.DragEvent) => {
+    private onDragOver = (event: React.DragEvent) => {
         event.preventDefault();
-        console.log('dragged over')
     };
 
     private generateConfigurationGridDOM = (length: number) =>
         map(range(length), (i: number) => (
             <div key={i}>
-                <ItemWrapper
+                <ItemWrapper id={i.toString()}
                     onDragOver={this.onDragOver}
                     onDrop={this.onDrop}
-                />
+                >
+                    {this.state.configurationItemsState[i]}
+                </ItemWrapper>
             </div>)
         );
 }
