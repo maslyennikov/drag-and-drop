@@ -6,6 +6,7 @@ interface IStore {
 
 export interface App {
     activeConfigurationLayout: Layout[];
+    configurationComponents: string[];
 }
 
 export default IStore;
