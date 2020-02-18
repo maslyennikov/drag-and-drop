@@ -1,5 +1,5 @@
 import React from 'react';
-import { texts } from "../../../constants/constants";
+import { texts } from "../../../constants";
 import { GridType } from "../../../config";
 
 import Title from '../../common/Title';

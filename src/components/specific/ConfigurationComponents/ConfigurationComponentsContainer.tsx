@@ -7,7 +7,7 @@ import { setConfigurationComponents } from '../../../redux/modules/app';
 import selectors from '../../../redux/selectors';
 import IStore from '../../../redux/store';
 import { AnyAction } from 'redux';
-import constants from '../../../constants';
+import {configurationComponents} from '../../../constants';
 import ComponentCard from '../../common/ComponentCard';
 
 interface IState {
@@ -29,12 +29,12 @@ class ConfigurationComponentsContainer extends React.PureComponent<IProps, IStat
         super(props);
 
         this.state = {
-            components: constants.configurationComponents
+            components: configurationComponents
         }
     }
 
     componentDidMount() {
-        this.props.setConfigurationComponents(constants.configurationComponents);
+        this.props.setConfigurationComponents(configurationComponents);
     }
 
     componentDidUpdate() {

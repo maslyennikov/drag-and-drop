@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { texts } from '../../../constants/constants';
+import { texts } from '../../../constants';
 import Title from '../../common/Title';
 import { ComponentsArea, Content } from './style'
 import ConfigurationComponentsContainer from '../ConfigurationComponents';

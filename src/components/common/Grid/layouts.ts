@@ -1,5 +1,5 @@
 import { map } from 'lodash';
-import { configurationComponents } from '../../../constants/constants';
+import { configurationComponents } from '../../../constants';
 
 export const configurationScreenOptionLayouts = [
     [
