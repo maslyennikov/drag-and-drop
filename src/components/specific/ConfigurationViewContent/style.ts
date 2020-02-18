@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const GridItem = styled.div`
-    border: 0.5px solid #3f51b5;
-`;
-
 export const ConfigurationArea = styled.div`
     width: 80%;
     padding: 2em
@@ -19,4 +15,10 @@ export const ComponentsArea = styled.div`
 export const Content = styled.div`
     display: flex;
     padding: 2em;
+`;
+
+export const ItemWrapper = styled.div`
+    border: 0.5px solid #3f51b5;
+    width: 100%;
+    height: 100%;
 `;

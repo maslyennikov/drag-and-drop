@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import LayoutViewContent from './LayoutViewContent';
 import { GridType } from '../../../config';
 
-import { ConfigurationScreenWrapper } from './style';
+import { ItemWrapper } from './style';
 import GridContainer from '../../common/Grid';
 import { configurationScreenOptionLayouts } from '../../common/Grid/layouts';
 import { setActiveConfigurationLayout } from '../../../redux/modules/app';
@@ -17,11 +17,13 @@ interface ILayoutViewContentContainer {
     setActiveConfigurationLayout: (layout: Layout[]) => AnyAction
 }
 
-class LayoutViewContentContainer extends React.PureComponent<ILayoutViewContentContainer>{
+class LayoutViewContentContainer extends React.PureComponent<ILayoutViewContentContainer> {
     // TODO: Add function description
     private generateDOM = () => map(range(configurationScreenOptionLayouts.length), (i: number) => {
         const configurationScreenOptionDOM = map(range(configurationScreenOptionLayouts[i].length), (j: number) => (
-            <ConfigurationScreenWrapper key={j} />
+            <div key={j}>
+                <ItemWrapper />
+            </div>
         ));
         const onConfigurationGridClick = () => {
             this.props.setActiveConfigurationLayout(configurationScreenOptionLayouts[i]);
@@ -37,7 +39,9 @@ class LayoutViewContentContainer extends React.PureComponent<ILayoutViewContentC
         );
 
         return (
-            <div key={i} onClick={() => {onConfigurationGridClick()}}>
+            <div key={i} onClick={() => {
+                onConfigurationGridClick()
+            }}>
                 <Link to={'/configuration'}>
                     {configurationScreenOptionGrid}
                 </Link>

@@ -6,7 +6,7 @@ import IStore from '../../../redux/store';
 import ConfigurationViewContent from './ConfigurationViewContent';
 import { Layout } from 'react-grid-layout';
 import { map, range } from 'lodash';
-import { GridItem } from './style';
+import { ItemWrapper } from './style';
 
 interface IConfigurationViewContentContainer {
     activeConfigurationLayout: Layout[];
@@ -15,9 +15,9 @@ interface IConfigurationViewContentContainer {
 class ConfigurationViewContentContainer extends React.PureComponent<IConfigurationViewContentContainer> {
     private generateConfigurationGridDOM = () =>
         map(range(this.props.activeConfigurationLayout.length), (i: number) => (
-            <GridItem key={i}>
-                {i}
-            </GridItem>)
+            <div key={i}>
+                <ItemWrapper />
+            </div>)
         );
 
     render() {

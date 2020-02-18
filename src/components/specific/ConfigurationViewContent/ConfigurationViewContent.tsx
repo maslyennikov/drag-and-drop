@@ -39,7 +39,7 @@ const ConfigurationViewContent = (props: IConfigurationViewContent) => {
                 <ComponentsArea>
                     <ConfigurationComponentsContainer />
                 </ComponentsArea>
-                
+
                 <ConfigurationArea>
                     {isEmpty(props.activeConfigurationLayout) ? selectLayout : configurationGrid}
                 </ConfigurationArea>

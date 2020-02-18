@@ -3,18 +3,23 @@ import React from 'react';
 import ConfigurationComponents from './ConfigurationComponents';
 import { map, range } from 'lodash';
 import constants from '../../../constants';
-import { GridItem } from '../ConfigurationViewContent/style';
+import { ComponentWrapper } from './style';
 
 interface IConfigurationComponentsContainer {
 
 }
 
-const generateConfigurationComponentsDOM = () =>
-    map(range(constants.configurationComponents.length), (i: number) => (
-        <GridItem key={i}>
-            {i}
-        </GridItem>)
+const generateConfigurationComponentsDOM = () => {
+    const components = constants.configurationComponents;
+
+    return map(range(components.length), (i: number) => (
+        <div key={i}>
+            <ComponentWrapper>
+                {components[i]}
+            </ComponentWrapper>
+        </div>)
     );
+};
 
 
 const ConfigurationComponentsContainer = (props: IConfigurationComponentsContainer) => (
