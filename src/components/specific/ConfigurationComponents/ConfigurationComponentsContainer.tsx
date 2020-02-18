@@ -10,7 +10,12 @@ import IStore from '../../../redux/store';
 import { AnyAction } from 'redux';
 import constants from '../../../constants';
 
-interface IConfigurationComponentsContainer {
+
+interface IState {
+    components: string[];
+}
+
+interface IProps {
     configurationComponents: string[];
 
     setConfigurationComponents: (configurationComponents: string[]) => AnyAction;
@@ -23,10 +28,28 @@ const onDragStart = (event: React.DragEvent, componentName: string) => {
 };
 
 class ConfigurationComponentsContainer extends React.PureComponent
-    <IConfigurationComponentsContainer> {
+    <IProps, IState> {
+
+    constructor(props: IProps) {
+        super(props);
+
+        this.state = {
+            components: constants.configurationComponents
+        }
+    }
+
+    componentDidMount() {
+        this.props.setConfigurationComponents(constants.configurationComponents);
+    }
+
+    componentDidUpdate() {
+        this.setState({
+            components: this.props.configurationComponents
+        });
+    }
 
     private generateConfigurationComponentsDOM = () => {
-        const components = this.props.configurationComponents;
+        const components = this.state.components;
 
         return map(range(components.length), (i: number) => (
             <div key={i}>
@@ -40,12 +63,6 @@ class ConfigurationComponentsContainer extends React.PureComponent
             </div>)
         );
     };
-
-    componentDidMount(): void {
-        const { configurationComponents } = constants;
-
-        this.props.setConfigurationComponents(configurationComponents);
-    }
 
     render() {
         return <ConfigurationComponents
