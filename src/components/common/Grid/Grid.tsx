@@ -1,7 +1,7 @@
 import React from 'react';
 import RGL, { ReactGridLayoutProps, WidthProvider } from 'react-grid-layout';
 
-interface IGrid {
+interface IProps {
     rglProps: ReactGridLayoutProps;
     children?: React.ReactElement;
 
@@ -10,7 +10,7 @@ interface IGrid {
 
 const ReactGridLayout = WidthProvider(RGL);
 
-const Grid = (props: IGrid) => (
+const Grid = (props: IProps) => (
     <div onClick={() => {props.onClick && props.onClick()}}>
         <ReactGridLayout
             {...props.rglProps}

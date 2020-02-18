@@ -1,11 +1,11 @@
 import React from 'react';
 import Title from './Title';
 
-interface IViewTitleContainer {
+interface IProps {
     title: string;
 }
 
-const TitleContainer = (props: IViewTitleContainer) => (
+const TitleContainer = (props: IProps) => (
     <Title title={props.title} />
 );
 

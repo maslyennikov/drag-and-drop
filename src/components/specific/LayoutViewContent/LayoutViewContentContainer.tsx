@@ -13,22 +13,27 @@ import { setActiveConfigurationLayout } from '../../../redux/modules/app';
 import { AnyAction } from 'redux';
 import { Layout } from 'react-grid-layout';
 
-interface ILayoutViewContentContainer {
+interface IProps {
     setActiveConfigurationLayout: (layout: Layout[]) => AnyAction
 }
 
-class LayoutViewContentContainer extends React.PureComponent<ILayoutViewContentContainer> {
-    // TODO: Add function description
+class LayoutViewContentContainer extends React.PureComponent<IProps> {
+
+    // Generating the DOM for the configuration grid options
     private generateDOM = () => map(range(configurationScreenOptionLayouts.length), (i: number) => {
-        const configurationScreenOptionDOM = map(range(configurationScreenOptionLayouts[i].length), (j: number) => (
-            <div key={j}>
-                <ItemWrapper />
-            </div>
-        ));
+        // Generating the DOM for each configuration option in configurationScreenOptionLayouts
+        const configurationScreenOptionDOM = map(
+            range(configurationScreenOptionLayouts[i].length), (j: number) => (
+                <div key={j}>
+                    <ItemWrapper />
+                </div>
+            ));
+
         const onConfigurationGridClick = () => {
             this.props.setActiveConfigurationLayout(configurationScreenOptionLayouts[i]);
         };
 
+        // Generating the Grid for configuration option
         const configurationScreenOptionGrid = (
             <GridContainer
                 type={GridType.configurationScreenOption}
@@ -39,9 +44,7 @@ class LayoutViewContentContainer extends React.PureComponent<ILayoutViewContentC
         );
 
         return (
-            <div key={i} onClick={() => {
-                onConfigurationGridClick()
-            }}>
+            <div key={i} onClick={() => { onConfigurationGridClick() }}>
                 <Link to={'/configuration'}>
                     {configurationScreenOptionGrid}
                 </Link>

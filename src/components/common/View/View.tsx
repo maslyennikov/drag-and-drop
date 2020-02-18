@@ -2,12 +2,12 @@ import React from 'react';
 
 import { ContentWrapper } from './style';
 
-interface IView {
+interface IProps {
     header: React.ReactElement;
     content: React.ReactElement;
 }
 
-const View = (props: IView) => (
+const View = (props: IProps) => (
     <>
         {props.header}
         <ContentWrapper>

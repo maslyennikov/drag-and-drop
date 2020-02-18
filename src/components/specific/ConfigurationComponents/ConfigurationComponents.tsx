@@ -4,11 +4,11 @@ import GridContainer from '../../common/Grid';
 import { GridType } from '../../../config';
 import { ComponentsWrapper, Title } from './style';
 
-interface IConfigurationComponents {
+interface IProps {
     configurationComponentsDOM: React.ReactElement[];
 }
 
-const ConfigurationComponents = (props: IConfigurationComponents) => (
+const ConfigurationComponents = (props: IProps) => (
     <>
         <Title>Components</Title>
         <ComponentsWrapper>

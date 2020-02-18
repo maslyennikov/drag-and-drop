@@ -7,12 +7,12 @@ import { GridType } from '../../../config';
 import { isEmpty } from 'lodash';
 import { Layout } from 'react-grid-layout';
 
-interface IConfigurationArea {
+interface IProps {
     activeConfigurationLayout: Layout[];
     configurationGridDOM: React.ReactElement[];
 }
 
-const ConfigurationArea = (props: IConfigurationArea) => {
+const ConfigurationArea = (props: IProps) => {
     const configurationGrid = (
         <GridContainer
             type={GridType.configurationScreen}
