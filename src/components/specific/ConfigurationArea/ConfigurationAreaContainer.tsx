@@ -9,6 +9,7 @@ import { ItemWrapper } from './style';
 import IStore from '../../../redux/store';
 import selectors from '../../../redux/selectors';
 import { setConfigurationComponents } from '../../../redux/modules/app';
+import ComponentCard from '../ComponentCard/ComponentCard';
 
 interface IProps {
     activeConfigurationLayout: Layout[];
@@ -74,7 +75,11 @@ class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
                              onDragOver={this.onDragOver}
                              onDrop={this.onDrop}
                 >
-                    {this.state.configurationItemsState[i]}
+                    {map(this.state.configurationItemsState[i], (item) => (
+                        <ComponentCard
+                            content={item}
+                        />
+                    ))}
                 </ItemWrapper>
             </div>)
         );

@@ -3,12 +3,12 @@ import { map, range } from 'lodash';
 import { connect } from 'react-redux';
 
 import ConfigurationComponents from './ConfigurationComponents';
-import { ComponentWrapper } from './style';
 import { setConfigurationComponents } from '../../../redux/modules/app';
 import selectors from '../../../redux/selectors';
 import IStore from '../../../redux/store';
 import { AnyAction } from 'redux';
 import constants from '../../../constants';
+import ComponentCard from '../ComponentCard/ComponentCard';
 
 interface IState {
     components: string[];
@@ -48,13 +48,10 @@ class ConfigurationComponentsContainer extends React.PureComponent<IProps, IStat
 
         return map(range(components.length), (i: number) => (
             <div key={i}>
-                <ComponentWrapper
-                    draggable
-                    onDragStart={(event) =>
-                        onDragStart(event, components[i])}
-                >
-                    {components[i]}
-                </ComponentWrapper>
+                <ComponentCard
+                    content={components[i]}
+                    onDragStart={(event) => onDragStart(event, components[i])}
+                />
             </div>)
         );
     };

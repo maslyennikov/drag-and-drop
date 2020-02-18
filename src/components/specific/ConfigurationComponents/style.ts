@@ -7,7 +7,7 @@ export const Title = styled.div`
 `;
 
 export const ComponentsWrapper = styled.div`
-    width: 50%;
+    width: 120px;
 `;
 
 export const ComponentWrapper = styled.div`
