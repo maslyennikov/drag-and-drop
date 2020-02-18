@@ -14,7 +14,7 @@ const generateConfigurationComponentsDOM = () => {
 
     return map(range(components.length), (i: number) => (
         <div key={i}>
-            <ComponentWrapper>
+            <ComponentWrapper draggable>
                 {components[i]}
             </ComponentWrapper>
         </div>)
