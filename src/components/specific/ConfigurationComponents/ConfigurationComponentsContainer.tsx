@@ -10,7 +10,6 @@ import IStore from '../../../redux/store';
 import { AnyAction } from 'redux';
 import constants from '../../../constants';
 
-
 interface IState {
     components: string[];
 }
@@ -22,13 +21,10 @@ interface IProps {
 }
 
 const onDragStart = (event: React.DragEvent, componentName: string) => {
-    console.log('dragstart on div', componentName);
-
     event.dataTransfer.setData("componentName", componentName);
 };
 
 class ConfigurationComponentsContainer extends React.PureComponent<IProps, IState> {
-
     constructor(props: IProps) {
         super(props);
 

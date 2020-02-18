@@ -26,19 +26,21 @@ class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
         super(props);
         const length = this.props.activeConfigurationLayout.length;
 
+        // Initialization for the states of the grid items
         this.state = {
             configurationItemsState: map(new Array(length), (item) => [])
         };
     }
 
     render() {
-        console.log(this.state.configurationItemsState);
-        return <ConfigurationArea
-            activeConfigurationLayout={this.props.activeConfigurationLayout}
-            configurationGridDOM={
-                this.generateConfigurationGridDOM(this.props.activeConfigurationLayout.length)
-            }
-        />
+        return (
+            <ConfigurationArea
+                activeConfigurationLayout={this.props.activeConfigurationLayout}
+                configurationGridDOM={
+                    this.generateConfigurationGridDOM(this.props.activeConfigurationLayout.length)
+                }
+            />
+        )
     }
 
     private onDrop = (event: any) => {
@@ -50,6 +52,7 @@ class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
             )
         );
 
+        // Updating the state for every item in the configuration grid
         let itemsClone = this.state.configurationItemsState.slice();
         itemsClone[event.target.id].push(componentName);
 
@@ -59,6 +62,7 @@ class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
         });
     };
 
+    // This function is necessary for drag'n drop to work
     private onDragOver = (event: React.DragEvent) => {
         event.preventDefault();
     };
@@ -67,8 +71,8 @@ class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
         map(range(length), (i: number) => (
             <div key={i}>
                 <ItemWrapper id={i.toString()}
-                    onDragOver={this.onDragOver}
-                    onDrop={this.onDrop}
+                             onDragOver={this.onDragOver}
+                             onDrop={this.onDrop}
                 >
                     {this.state.configurationItemsState[i]}
                 </ItemWrapper>

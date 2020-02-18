@@ -1,12 +1,12 @@
 import React from 'react';
 
 import View from '../../components/common/View';
-import HeaderContainer from '../../components/common/Header';
+import Header from '../../components/common/Header';
 import LayoutViewContentContainer from '../../components/specific/LayoutViewContent';
 
 const LayoutView = () => (
     <View
-        header={<HeaderContainer />}
+        header={<Header />}
         content={<LayoutViewContentContainer />}
     />
 );

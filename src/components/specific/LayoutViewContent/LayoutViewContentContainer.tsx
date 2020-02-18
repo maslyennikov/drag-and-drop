@@ -18,17 +18,22 @@ interface IProps {
 }
 
 class LayoutViewContentContainer extends React.PureComponent<IProps> {
-    // TODO: Add function description
+
+    // Generating the DOM for the configuration grid options
     private generateDOM = () => map(range(configurationScreenOptionLayouts.length), (i: number) => {
-        const configurationScreenOptionDOM = map(range(configurationScreenOptionLayouts[i].length), (j: number) => (
-            <div key={j}>
-                <ItemWrapper />
-            </div>
-        ));
+        // Generating the DOM for each configuration option in configurationScreenOptionLayouts
+        const configurationScreenOptionDOM = map(
+            range(configurationScreenOptionLayouts[i].length), (j: number) => (
+                <div key={j}>
+                    <ItemWrapper />
+                </div>
+            ));
+
         const onConfigurationGridClick = () => {
             this.props.setActiveConfigurationLayout(configurationScreenOptionLayouts[i]);
         };
 
+        // Generating the Grid for configuration option
         const configurationScreenOptionGrid = (
             <GridContainer
                 type={GridType.configurationScreenOption}
@@ -39,9 +44,7 @@ class LayoutViewContentContainer extends React.PureComponent<IProps> {
         );
 
         return (
-            <div key={i} onClick={() => {
-                onConfigurationGridClick()
-            }}>
+            <div key={i} onClick={() => { onConfigurationGridClick() }}>
                 <Link to={'/configuration'}>
                     {configurationScreenOptionGrid}
                 </Link>
