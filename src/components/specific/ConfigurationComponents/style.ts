@@ -9,12 +9,3 @@ export const Title = styled.div`
 export const ComponentsWrapper = styled.div`
     width: 120px;
 `;
-
-export const ComponentWrapper = styled.div`
-    width: 100%;
-    height: 100%; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0.5px solid #3f51b5;
-`;
