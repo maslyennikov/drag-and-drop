@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GridContainer from '../../common/Grid';
+import Grid from '../../common/Grid';
 import { GridType } from '../../../config';
 import { ComponentsWrapper, Title } from './style';
 
@@ -12,9 +12,9 @@ const ConfigurationComponents = (props: IProps) => (
     <>
         <Title>Components</Title>
         <ComponentsWrapper>
-            <GridContainer type={GridType.configurationComponents}>
+            <Grid type={GridType.configurationComponents}>
                 {props.configurationComponentsDOM}
-            </GridContainer>
+            </Grid>
         </ComponentsWrapper>
     </>
 );

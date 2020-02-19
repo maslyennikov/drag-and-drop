@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import LayoutViewContent from './LayoutViewContent';
 import { GridType, routes } from '../../../config';
 import { ItemWrapper } from './style';
-import GridContainer from '../../common/Grid';
+import Grid from '../../common/Grid';
 import { configurationScreenOptionLayouts } from '../../common/Grid/layouts';
 import { setActiveConfigurationLayout } from '../../../redux/modules/app';
 import { AnyAction } from 'redux';
@@ -30,12 +30,12 @@ class LayoutViewContentContainer extends React.PureComponent<IProps> {
 
             // Generating the Grid for configuration option
             const configurationScreenOptionGrid = (
-                <GridContainer
+                <Grid
                     type={GridType.configurationScreenOption}
                     customLayout={configurationScreenOptionLayouts[i]}
                 >
                     {configurationScreenOptionDOM}
-                </GridContainer>
+                </Grid>
             );
 
             return (
