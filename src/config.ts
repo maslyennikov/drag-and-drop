@@ -4,3 +4,8 @@ export enum GridType {
     configurationScreen = 'configurationScreen',
     configurationComponents = 'configurationComponents'
 }
+
+export enum routes {
+    configuration = '/configutation',
+    layout = '/'
+}

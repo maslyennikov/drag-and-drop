@@ -1,3 +1,3 @@
-import TitleContainer from './TitleContainer'
+import Title from './Title'
 
-export default TitleContainer;
+export default Title;

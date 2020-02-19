@@ -3,20 +3,21 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import ConfigurationView from '../../../views/ConfigurationView';
 import LayoutView from '../../../views/LayoutView';
+import { routes } from '../../../config';
 
-const Router = () => (
+const RouterContainer = () => (
     <BrowserRouter>
         <Switch>
             <Route
-                path={'/configuration'}
+                path={routes.configuration}
                 render={ConfigurationView}
             />
             <Route
-                path={'/'}
+                path={routes.layout}
                 render={LayoutView}
             />
         </Switch>
     </BrowserRouter>
 );
 
-export default Router;
+export default RouterContainer;

@@ -7,7 +7,7 @@ import { setConfigurationComponents } from '../../../redux/modules/app';
 import selectors from '../../../redux/selectors';
 import IStore from '../../../redux/store';
 import { AnyAction } from 'redux';
-import {configurationComponents} from '../../../constants';
+import { configurationComponents } from '../../../constants';
 import ComponentCard from '../../common/ComponentCard';
 
 interface IState {
@@ -37,14 +37,22 @@ class ConfigurationComponentsContainer extends React.PureComponent<IProps, IStat
         this.props.setConfigurationComponents(configurationComponents);
     }
 
-    componentDidUpdate() {
-        this.setState({
-            components: this.props.configurationComponents
-        });
+    componentDidUpdate(prevProps: IProps) {
+        if (prevProps.configurationComponents !== this.props.configurationComponents) {
+            this.setState({
+                components: this.props.configurationComponents
+            });
+        }
+    }
+
+    render() {
+        return <ConfigurationComponents
+            configurationComponentsDOM={this.generateConfigurationComponentsDOM()}
+        />
     }
 
     private generateConfigurationComponentsDOM = () => {
-        const components = this.state.components;
+        const { components } = this.state;
 
         return map(range(components.length), (i: number) => (
             <div key={i}>
@@ -53,15 +61,9 @@ class ConfigurationComponentsContainer extends React.PureComponent<IProps, IStat
                     draggable={true}
                     onDragStart={(event) => onDragStart(event, components[i])}
                 />
-            </div>)
-        );
+            </div>
+        ));
     };
-
-    render() {
-        return <ConfigurationComponents
-            configurationComponentsDOM={this.generateConfigurationComponentsDOM()}
-        />
-    }
 }
 
 const mapStateToProps = (store: IStore) => ({

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { ConfigurationAreaWrapper } from './style';
 import GridContainer from '../../common/Grid';
-import { GridType } from '../../../config';
+import { GridType, routes } from '../../../config';
 import { isEmpty } from 'lodash';
 import { Layout } from 'react-grid-layout';
 
@@ -23,7 +23,7 @@ const ConfigurationArea = (props: IProps) => {
 
     const selectLayout = (
         <>
-            Please select layout first <Link to={'/'}>here</Link>
+            Please select layout first <Link to={routes.layout}>here</Link>
         </>
     );
 

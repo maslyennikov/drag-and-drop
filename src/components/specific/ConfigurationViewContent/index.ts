@@ -1,3 +1,3 @@
-import ConfigurationViewContentContainer from './ConfigurationViewContentContainer';
+import ConfigurationViewContent from './ConfigurationViewContent';
 
-export default ConfigurationViewContentContainer;
+export default ConfigurationViewContent;

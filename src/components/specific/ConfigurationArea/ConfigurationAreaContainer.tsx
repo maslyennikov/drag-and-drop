@@ -1,5 +1,5 @@
 import React from 'react';
-import { filter, map, range } from 'lodash';
+import { filter, map, range, isEmpty } from 'lodash';
 import { connect } from 'react-redux';
 import { Layout } from 'react-grid-layout';
 import { AnyAction } from 'redux';
@@ -44,8 +44,33 @@ class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
         )
     }
 
+    private generateConfigurationGridDOM = (length: number) => (
+        map(range(length), (i: number) => (
+                <div key={i}>
+                    <ItemWrapper id={i.toString()}
+                                 onDragOver={this.onDragOver}
+                                 onDrop={this.onDrop}
+                    >
+                        {map(this.state.configurationItemsState[i], (item) => (
+                            <ComponentCard
+                                content={item}
+                                key={item}
+                                draggable={false}
+                            />
+                        ))}
+                    </ItemWrapper>
+                </div>
+            )
+        )
+    );
+
     private onDrop = (event: any) => {
         const componentName = event.dataTransfer.getData("componentName");
+
+        // defensive programming
+        if (isEmpty(componentName) || isEmpty(event.target.id)) {
+            return;
+        }
 
         this.props.setConfigurationComponents(
             filter(this.props.configurationComponents,
@@ -67,24 +92,6 @@ class ConfigurationAreaContainer extends React.PureComponent <IProps, IState> {
     private onDragOver = (event: React.DragEvent) => {
         event.preventDefault();
     };
-
-    private generateConfigurationGridDOM = (length: number) =>
-        map(range(length), (i: number) => (
-            <div key={i}>
-                <ItemWrapper id={i.toString()}
-                             onDragOver={this.onDragOver}
-                             onDrop={this.onDrop}
-                >
-                    {map(this.state.configurationItemsState[i], (item) => (
-                        <ComponentCard
-                            content={item}
-                            key={item}
-                            draggable={false}
-                        />
-                    ))}
-                </ItemWrapper>
-            </div>)
-        );
 }
 
 const mapStateToProps = (store: IStore) => ({

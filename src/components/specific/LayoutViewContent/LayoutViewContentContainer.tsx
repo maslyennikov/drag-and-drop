@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import LayoutViewContent from './LayoutViewContent';
-import { GridType } from '../../../config';
-
+import { GridType, routes } from '../../../config';
 import { ItemWrapper } from './style';
 import GridContainer from '../../common/Grid';
 import { configurationScreenOptionLayouts } from '../../common/Grid/layouts';
@@ -18,42 +17,35 @@ interface IProps {
 }
 
 class LayoutViewContentContainer extends React.PureComponent<IProps> {
-
-    // Generating the DOM for the configuration grid options
-    private generateDOM = () => map(range(configurationScreenOptionLayouts.length), (i: number) => {
-        // Generating the DOM for each configuration option in configurationScreenOptionLayouts
-        const configurationScreenOptionDOM = map(
-            range(configurationScreenOptionLayouts[i].length), (j: number) => (
-                <div key={j}>
-                    <ItemWrapper />
-                </div>
-            ));
-
-        const onConfigurationGridClick = () => {
-            this.props.setActiveConfigurationLayout(configurationScreenOptionLayouts[i]);
-        };
-
-        // Generating the Grid for configuration option
-        const configurationScreenOptionGrid = (
-            <GridContainer
-                type={GridType.configurationScreenOption}
-                customLayout={configurationScreenOptionLayouts[i]}
-            >
-                {configurationScreenOptionDOM}
-            </GridContainer>
-        );
-
-        return (
-            <div key={i} onClick={() => { onConfigurationGridClick() }}>
-                <Link to={'/configuration'}>
-                    {configurationScreenOptionGrid}
-                </Link>
-            </div>
-        );
-    });
-
     render() {
-        const domContent = this.generateDOM();
+        // Generating the DOM for the configuration grid options
+        const domContent = map(range(configurationScreenOptionLayouts.length), (i: number) => {
+            // Generating the DOM for each configuration option in configurationScreenOptionLayouts
+            const configurationScreenOptionDOM = map(
+                range(configurationScreenOptionLayouts[i].length), (j: number) => (
+                    <div key={j}>
+                        <ItemWrapper />
+                    </div>
+                ));
+
+            // Generating the Grid for configuration option
+            const configurationScreenOptionGrid = (
+                <GridContainer
+                    type={GridType.configurationScreenOption}
+                    customLayout={configurationScreenOptionLayouts[i]}
+                >
+                    {configurationScreenOptionDOM}
+                </GridContainer>
+            );
+
+            return (
+                <div key={i} onClick={() => { this.onConfigurationGridClick(i) }}>
+                    <Link to={routes.configuration}>
+                        {configurationScreenOptionGrid}
+                    </Link>
+                </div>
+            );
+        });
 
         return (
             <LayoutViewContent
@@ -61,6 +53,10 @@ class LayoutViewContentContainer extends React.PureComponent<IProps> {
             />
         );
     }
+
+    private onConfigurationGridClick = (i: number) => {
+        this.props.setActiveConfigurationLayout(configurationScreenOptionLayouts[i]);
+    };
 }
 
 const mapDispatchToProps = {
